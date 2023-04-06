@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom'
+
 import logo from '../../assets/marca_com_fundo.svg'
 import diamond from '../../assets/diamond.svg'
-import search from '../../assets/icone_busca.svg'
+import { InputSearch } from '../InputSearch'
 
 export function TopBar() {
   return (
@@ -10,13 +12,13 @@ export function TopBar() {
       </a>
 
       <nav className='flex flex-1 items-center font-semibold'>
-        <a className='mr-3' href="/">Cryptocurrencies</a>
-        <a className='mr-3' href="/">Exchanges</a>
-        <a className='mr-3' href="/">NFT</a>
-        <a className='mr-3' href="/">CrypTown</a>
-        <a className='mr-3' href="/">Portfolio</a>
-        <a className='mr-3' href="/">Watchlist</a>
-        <a href="/">Products</a>
+        <Link className='mr-3' to="/">Cryptocurrencies</Link>
+        <Link className='mr-3' to="/">Exchanges</Link>
+        <Link className='mr-3' to="/">NFT</Link>
+        <Link className='mr-3' to="/">CrypTown</Link>
+        <Link className='mr-3' to="/">Portfolio</Link>
+        <Link className='mr-3' to="/">Watchlist</Link>
+        <Link to="/">Products</Link>
       </nav>
 
       <div className='flex ml-6'>
@@ -29,13 +31,8 @@ export function TopBar() {
           Sign up
         </button>
 
-        <div className='flex bg-[#EFF2F5] rounded-lg h-10 items-center px-2 w-fit border-2 border-transparent focus-within:border-black'>
-          <img src={search} className='mr-2' alt="lupa de busca" />
-          <input type="text" placeholder='Buscar' className='bg-transparent w-32 outline-none' />
-          <span className='rounded-lg bg-[#A7B1C2] px-2 justify-center items-center text-white'>
-            /
-          </span>
-        </div>
+        <InputSearch />
+
       </div>
     </div>
   )

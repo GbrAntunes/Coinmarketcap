@@ -1,8 +1,9 @@
-import { useState } from "react"
+type PageHeaderProps = {
+  isHighlightsShown: boolean
+  toggleHighlights: (value: boolean) => void
+}
 
-export function PageHeader() {
-  const [showHighlights, setShowHighlights] = useState(true)
-
+export function PageHeader({ isHighlightsShown, toggleHighlights }: PageHeaderProps) {
   return (
     <div className="flex justify-between py-14 px-28">
       <h1 className="text-2xl font-bold">
@@ -11,7 +12,7 @@ export function PageHeader() {
 
       <div
         className="flex items-center"
-        onClick={() => setShowHighlights(!showHighlights)}
+        onClick={() => toggleHighlights(!isHighlightsShown)}
       >
         <label className="text-[#A7B1C2] select-none mr-2 cursor-pointer">
           Highlights
@@ -20,8 +21,8 @@ export function PageHeader() {
 
         <div className={`
           w-14 h-7 rounded-2xl flex items-center px-1 cursor-pointer transition duration-200
-          ${showHighlights ? 'bg-[#3861FB]' : 'bg-slate-400'}
-          ${showHighlights ? 'justify-start' : 'justify-end'}
+          ${isHighlightsShown ? 'bg-[#3861FB]' : 'bg-slate-400'}
+          ${isHighlightsShown ? 'justify-end' : 'justify-start'}
         `}>
           <div className="h-5 w-5 rounded-xl bg-slate-200"></div>
         </div>

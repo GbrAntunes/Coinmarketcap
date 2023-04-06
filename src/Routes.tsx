@@ -9,7 +9,7 @@ export const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/crypto",
+    path: "/crypto/:id",
     element: <CryptoDetails />,
   },
 ]);
