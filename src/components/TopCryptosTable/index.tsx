@@ -86,7 +86,9 @@ export function TopCryptoTable() {
                   <span className='mr-2 bg-[#F7931A] w-5 h-5 rounded-xl inline-block'></span>
                   <span className='mr-2 font-bold'>{ crypto.name }</span>
                   <span className='mr-2 uppercase text-[#A7B1C2]'>{ crypto.symbol }</span>
-                  <span className='text-xs font-bold text-[#3C67F7] bg-[#E7F0FF] px-3 py-2 rounded-lg'>Buy</span>
+                  { crypto.lastDayDeviation < 0 && (
+                    <span className='text-xs font-bold text-[#3C67F7] bg-[#E7F0FF] px-3 py-2 rounded-lg'>Buy</span>
+                  )}
                 </td>
                 <td className='h-16 font-bold text-right'>{ formatCurrency(crypto.currentPrice) }</td>
                 { crypto.lastDayDeviation >= 0
