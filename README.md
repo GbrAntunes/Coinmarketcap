@@ -1,5 +1,6 @@
 # CoinMarketCap
-A aplicação desenvolvida visa apresentar dados comparativos entre diversas criptomoedas. Conta apenas com um front feito em **React**, **Typescript** e **Tailwind CSS**, com a parte do back sendo inteiramente provida pela API da Coingecko.
+A aplicação desenvolvida visa apresentar dados comparativos entre diversas criptomoedas. Conta apenas com um front feito em **React**, **Typescript** e **Tailwind CSS**, com a parte do back sendo inteiramente provida pela API da Coingecko. A versão do node utilizada foi a **v16.16**
+
 
 ## Funcionalidades propostas
 - [x] Listar as tops criptomoedas
@@ -8,14 +9,17 @@ A aplicação desenvolvida visa apresentar dados comparativos entre diversas cri
 - [x] Tailwind CSS
 - [x] Lista de favoritos
 
+
 ## Rotas
 `/` - Home contendo tabela de criptomoedas e favoritos
 
 `/crypto/:id` - Página de detalhes da criptomoeda
 
+
 ## Instruções para executar o projeto localmente
 1. dentro da pasta raíz, executar `npm i`
 2. `npm start` e aguardar até que seja aberta uma aba no seu navegador
+
 
 ## Considerações sobre o desafio
 
