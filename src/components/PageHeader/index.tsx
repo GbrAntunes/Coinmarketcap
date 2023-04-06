@@ -14,7 +14,7 @@ export function PageHeader({ isHighlightsShown, toggleHighlights }: PageHeaderPr
         className="flex items-center"
         onClick={() => toggleHighlights(!isHighlightsShown)}
       >
-        <label className="text-[#A7B1C2] select-none mr-2 cursor-pointer">
+        <label className="text-coldGray select-none mr-2 cursor-pointer">
           Highlights
           <input type="checkbox" className="hidden" id="highlights" />
         </label>

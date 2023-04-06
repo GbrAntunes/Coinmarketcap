@@ -49,16 +49,16 @@ export function CryptoCard({ id }: CryptoCardProps) {
         <div className='flex items-center'>
           <h1 className='font-mono font-bold text-2xl uppercase'>{coin.symbol}</h1>
           {coin.lastDayDeviation >= 0
-            ? <span className='text-[#16C784]'>▲</span>
-            : <span className='text-[#EA3943]'>▼</span>
+            ? <span className='text-ascendGreen'>▲</span>
+            : <span className='text-descendRed'>▼</span>
           }
         </div>
-        <p className='text-[#A7B1C2]'>
+        <p className='text-coldGray'>
           {formatCurrency(coin.price)}
         </p>
         {coin.lastDayDeviation >= 0
-          ? <p className='text-[#16C784]'>+{coin.lastDayDeviation.toFixed(2)}%</p>
-          : <p className='text-[#EA3943]'>{coin.lastDayDeviation.toFixed(2)}%</p>
+          ? <p className='text-ascendGreen'>+{coin.lastDayDeviation.toFixed(2)}%</p>
+          : <p className='text-descendRed'>{coin.lastDayDeviation.toFixed(2)}%</p>
         }
 
       </div>

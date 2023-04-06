@@ -60,7 +60,7 @@ export function TopCryptoTable() {
     <div className='flex-1 px-28 mb-10'>
       <table className='w-full'>
         <thead>
-          <tr className='border-b border-[#A7B1C2] pb-4'>
+          <tr className='border-b border-coldGray pb-4'>
             <th></th>
             <th className='text-center'>#</th>
             <th className='text-left'>Nome</th>
@@ -73,7 +73,7 @@ export function TopCryptoTable() {
         <tbody>
           { topCryptosList && (
             topCryptosList.map((crypto, index) => (
-              <tr className='border-b border-[#A7B1C2]' key={crypto.id}>
+              <tr className='border-b border-coldGray' key={crypto.id}>
                 <td onClick={() => handleFavoriteClick(crypto.id)}>
                   {
                     favorites.includes(crypto.id)
@@ -85,19 +85,19 @@ export function TopCryptoTable() {
                 <td className='h-16 flex items-center'>
                   <span className='mr-2 bg-[#F7931A] w-5 h-5 rounded-xl inline-block'></span>
                   <span className='mr-2 font-bold'>{ crypto.name }</span>
-                  <span className='mr-2 uppercase text-[#A7B1C2]'>{ crypto.symbol }</span>
+                  <span className='mr-2 uppercase text-coldGray'>{ crypto.symbol }</span>
                   { crypto.lastDayDeviation < 0 && (
                     <span className='text-xs font-bold text-[#3C67F7] bg-[#E7F0FF] px-3 py-2 rounded-lg'>Buy</span>
                   )}
                 </td>
                 <td className='h-16 font-bold text-right'>{ formatCurrency(crypto.currentPrice) }</td>
                 { crypto.lastDayDeviation >= 0
-                  ? <td className='h-16 font-semibold text-right text-[#16C784]'> +{crypto.lastDayDeviation.toFixed(2)}% </td>
-                  : <td className='h-16 font-semibold text-right text-[#EA3943]'> {crypto.lastDayDeviation.toFixed(2)}% </td>
+                  ? <td className='h-16 font-semibold text-right text-ascendGreen'> +{crypto.lastDayDeviation.toFixed(2)}% </td>
+                  : <td className='h-16 font-semibold text-right text-descendRed'> {crypto.lastDayDeviation.toFixed(2)}% </td>
                 }
                 { crypto.lastWeekDeviation >= 0
-                  ? <td className='h-16 font-semibold text-right text-[#16C784]'>+ { crypto.lastWeekDeviation.toFixed(2) }%</td>
-                  : <td className='h-16 font-semibold text-right text-[#EA3943]'>{ crypto.lastWeekDeviation.toFixed(2) }%</td>
+                  ? <td className='h-16 font-semibold text-right text-ascendGreen'>+ { crypto.lastWeekDeviation.toFixed(2) }%</td>
+                  : <td className='h-16 font-semibold text-right text-descendRed'>{ crypto.lastWeekDeviation.toFixed(2) }%</td>
                 }
                 <td className='h-16 font-bold text-right'>{ formatCurrency(crypto.marketValue) }</td>
               </tr>

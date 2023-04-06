@@ -86,7 +86,7 @@ export function CryptoDetails() {
     <>
       <TopBar />
       <div className='px-28'>
-        <div className='py-14 font-semibold text-[#A7B1C2]'>
+        <div className='py-14 font-semibold text-coldGray'>
           Criptomoedas {'>'} Moedas {'>'} <strong className='font-bold text-black'>{coin.name}</strong>
         </div>
 
@@ -95,7 +95,7 @@ export function CryptoDetails() {
             <div className='flex items-center mb-3'>
               <span className='mr-2 bg-[#F7931A] w-5 h-5 rounded-xl inline-block'></span>
               <h1 className='text-4xl font-bold mx-3'>{coin.name}</h1>
-              <span className='bg-[#EFF2F5] text-[#A7B1C2] rounded-lg text-xs px-3 py-2'>{coin.symbol}</span>
+              <span className='bg-[#EFF2F5] text-coldGray rounded-lg text-xs px-3 py-2'>{coin.symbol}</span>
               <img src={borderEmptyStar} className='ml-3' alt="estrela vazia" />
             </div>
             <span className='p-2 bg-[#80899C] text-white rounded-lg'>
@@ -104,28 +104,28 @@ export function CryptoDetails() {
           </div>
 
           <div className='flex flex-col'>
-            <div className='text-[#A7B1C2] font-semibold'>Preço de {coin.name}
+            <div className='text-coldGray font-semibold'>Preço de {coin.name}
               (<span className='uppercase'>{coin.symbol}</span>)
             </div>
             <div className='flex flex-row items-center mb-3'>
               <h1 className='font-bold text-5xl mr-3'>{formatCurrency(coin.usdPrice)}</h1>
-              <span className={`${coin.lastDayDeviation >= 0 ? 'bg-[#16C784]' : 'bg-[#EA3943]'} rounded-lg text-white px-3 py-2`}>
+              <span className={`${coin.lastDayDeviation >= 0 ? 'bg-ascendGreen' : 'bg-descendRed'} rounded-lg text-white px-3 py-2`}>
                 {coin.lastDayDeviation > 0 ? '▲' : '▼'} {coin.lastDayDeviation.toFixed(2)}%
               </span>
             </div>
             <div className='flex flex-row justify-between items-center'>
-              <div className='text-[#A7B1C2]'>
+              <div className='text-coldGray'>
                 {coin.btcPrice.toFixed(8)} BTC
               </div>
-              <div className='font-semibold text-[#16C784]'>
+              <div className='font-semibold text-ascbg-ascendGreen'>
                 ▲ {coin.btcChange.toFixed(2)}%
               </div>
             </div>
             <div className='flex flex-row justify-between items-center'>
-              <div className='text-[#A7B1C2]'>
+              <div className='text-coldGray'>
                 {coin.ethPrice.toFixed(8)} ETH
               </div>
-              <div className={`font-semibold ${coin.ethChange >= 0 ? 'text-[##16C784]' : 'text-[#EA3943]' }`}>
+              <div className={`font-semibold ${coin.ethChange >= 0 ? 'text-ascendGreen' : 'text-descendRed' }`}>
                  {coin.ethChange >= 0 ? `▲ ${coin.ethChange.toFixed(2)}%` : `▼ ${coin.ethChange.toFixed(2)}%`}
               </div>
             </div>
