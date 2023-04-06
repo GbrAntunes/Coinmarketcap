@@ -39,7 +39,7 @@ export function CryptoCard({ id }: CryptoCardProps) {
   }, [id])
 
   return (
-    <li className='flex border bg-white border-slate-300 rounded-lg px-6 py-4 mr-6'>
+    <li className='flex border bg-white border-slate-300 rounded-lg px-6 py-4 mr-6 min-w-fit'>
       <div className='flex items-center text-4xl font-bold mr-3'>
         {coin.rank}
         <img src={filledStar} alt="estrela preenchida" />
