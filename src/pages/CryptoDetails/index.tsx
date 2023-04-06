@@ -6,6 +6,7 @@ import { TopBar } from '../../components/TopBar'
 
 import borderEmptyStar from '../../assets/favoritar.svg'
 import { formatCurrency } from '../../utils/formatCurrency'
+import { GenericCard } from '../../components/GenericCard'
 
 type CoinParams = {
   id: string
@@ -132,24 +133,9 @@ export function CryptoDetails() {
         </div>
 
         <div className='flex justify-around'>
-          <div className='p-6 bg-white border border-[#E5E5E5] rounded-lg w-80'>
-            <p className='text-[#A7B1C2] font-semibold'>Github Followers</p>
-            <p className='text-[#1E3146] font-bold text-4xl'>
-              {coin.subscribers}
-            </p>
-          </div>
-          <div className='p-6 bg-white border border-[#E5E5E5] rounded-lg w-80'>
-            <p className='text-[#A7B1C2] font-semibold'>Github Stars</p>
-            <p className='text-[#1E3146] font-bold text-4xl'>
-              {coin.stars}
-            </p>
-          </div>
-          <div className='p-6 bg-white border border-[#E5E5E5] rounded-lg w-80'>
-            <p className='text-[#A7B1C2] font-semibold'>Github Forks</p>
-            <p className='text-[#1E3146] font-bold text-4xl'>
-              {coin.forks}
-            </p>
-          </div>
+          <GenericCard text={'Github Followers'} value={coin.subscribers} />
+          <GenericCard text={'Github Stars'} value={coin.stars} />
+          <GenericCard text={'Github Forks'} value={coin.forks} />
         </div>
       </div>
     </>
