@@ -52,7 +52,7 @@ export function TopCryptoTable() {
         setTopCryptosList(mappedData)
       })
       .catch(function (error) {
-        console.log(error);
+        console.log('Request recusada pela API. É provável que o limite de chamadas tenha sido atingido, por favor aguarde um minuto e tente novamente');
       })
   }, [])
 

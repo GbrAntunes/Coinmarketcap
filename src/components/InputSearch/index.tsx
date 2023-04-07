@@ -22,7 +22,7 @@ export function InputSearch() {
         setCoinSearchList(response.data.coins)
       })
       .catch(function (error) {
-        console.log(error);
+        console.log('Request recusada pela API. É provável que o limite de chamadas tenha sido atingido, por favor aguarde um minuto e tente novamente');
       })
   }, [debouncedSearch])
 
@@ -36,7 +36,7 @@ export function InputSearch() {
       <img src={search} className='mr-2' alt="lupa de busca" />
       <input
         type="text"
-        value={searchTerm}
+        // value={searchTerm}
         onChange={handleSearchChange}
         placeholder='Buscar'
         className='bg-transparent w-32 outline-none'
@@ -45,7 +45,7 @@ export function InputSearch() {
         <ul className='absolute top-10 px-2 py-3 bg-white border border-coldGray rounded-lg max-h-80 overflow-y-auto'>
           {coinSearchList.map((coinSugestion) => (
 
-            <Link to={`/crypto/${coinSugestion.id}`}>
+            <Link key={coinSugestion.id} to={`/crypto/${coinSugestion.id}`}>
               <li key={coinSugestion.id}>
                 {coinSugestion.name}
               </li>

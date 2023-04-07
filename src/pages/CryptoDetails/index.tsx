@@ -28,7 +28,7 @@ type CoinParams = {
 
 export function CryptoDetails() {
   const { id: coinId } = useParams()
-  const [favorites, setNewFavoriteCoin] = useContext(Context)
+  const [favorites] = useContext(Context)
   const [coin, setCoin] = useState<CoinParams>({
     id: '',
     symbol: '',
@@ -81,9 +81,9 @@ export function CryptoDetails() {
 
     })
     .catch(function (error) {
-      console.log(error);
+      console.log('Request recusada pela API. É provável que o limite de chamadas tenha sido atingido, por favor aguarde um minuto e tente novamente');
     })
-  }, [])
+  }, [coinId])
 
   return (
     <>

@@ -13,7 +13,7 @@ export function Favorites() {
       </h2>
 
       <ul className='flex overflow-x-auto'>
-        {favorites.map((favorite: any) => <CryptoCard id={favorite}/>)}
+        {favorites.map((favorite: any) => <CryptoCard key={favorite} id={favorite}/>)}
       </ul>
     </div>
   )
