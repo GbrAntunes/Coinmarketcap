@@ -1,12 +1,14 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
-import { TopBar } from '../../components/TopBar'
-
 import borderEmptyStar from '../../assets/favoritar.svg'
+import filledStar from '../../assets/favorito_ativo.svg'
+
+import { TopBar } from '../../components/TopBar'
 import { formatCurrency } from '../../utils/formatCurrency'
 import { GenericCard } from '../../components/GenericCard'
+import Context from '../../context/context'
 
 type CoinParams = {
   id: string
@@ -26,6 +28,7 @@ type CoinParams = {
 
 export function CryptoDetails() {
   const { id: coinId } = useParams()
+  const [favorites, setNewFavoriteCoin] = useContext(Context)
   const [coin, setCoin] = useState<CoinParams>({
     id: '',
     symbol: '',
@@ -96,7 +99,10 @@ export function CryptoDetails() {
               <span className='mr-2 bg-[#F7931A] w-5 h-5 rounded-xl inline-block'></span>
               <h1 className='text-4xl font-bold mx-3'>{coin.name}</h1>
               <span className='bg-[#EFF2F5] text-coldGray rounded-lg text-xs px-3 py-2'>{coin.symbol}</span>
-              <img src={borderEmptyStar} className='ml-3' alt="estrela vazia" />
+              {favorites.includes(coin.id)
+                ? <img src={filledStar} className='ml-3' alt="estrela vazia" />
+                : <img src={borderEmptyStar} className='ml-3' alt="estrela vazia" />
+              }
             </div>
             <span className='p-2 bg-[#80899C] text-white rounded-lg'>
               Classificação #{coin.rank}
@@ -125,7 +131,7 @@ export function CryptoDetails() {
               <div className='text-coldGray'>
                 {coin.ethPrice.toFixed(8)} ETH
               </div>
-              <div className={`font-semibold ${coin.ethChange >= 0 ? 'text-ascendGreen' : 'text-descendRed' }`}>
+              <div className={`font-semibold ${coin.ethChange < 0 ? 'text-descendRed' : 'text-ascendGreen' }`}>
                  {coin.ethChange >= 0 ? `▲ ${coin.ethChange.toFixed(2)}%` : `▼ ${coin.ethChange.toFixed(2)}%`}
               </div>
             </div>
