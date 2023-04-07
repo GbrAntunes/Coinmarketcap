@@ -23,7 +23,7 @@ function App({ children }: Props) {
     }
 
     localStorage.setItem('favorites', JSON.stringify([newCoin, ...favorites]))
-    setFavorites([newCoin, ...favorites])
+    setFavorites([...favorites, newCoin])
   }
 
   useEffect(() => {
